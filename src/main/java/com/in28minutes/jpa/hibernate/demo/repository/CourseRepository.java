@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 
 @Repository
+@Transactional
 public class CourseRepository {
 
     @Autowired
@@ -17,9 +18,18 @@ public class CourseRepository {
         return entityManager.find(Course.class, id);
     }
 
-    @Transactional
+
     public void deleteById(Long id) {
         Course course = findById(id);
         entityManager.remove(course);
+    }
+
+    public Course save(Course course) {
+        if (course.getId() == null) {
+            entityManager.persist(course);
+        } else {
+            entityManager.merge(course);
+        }
+        return course;
     }
 }
