@@ -29,7 +29,7 @@ public class JPQlTest {
 
     @Test
     public void findById_typed() {
-        TypedQuery<Course> query = entityManager.createQuery("select c from Course c", Course.class);
+        TypedQuery<Course> query = entityManager.createNamedQuery("query_get_all_courses", Course.class);
         List<Course> resultList = query.getResultList();
         System.out.println("Result list: " + resultList);
     }
