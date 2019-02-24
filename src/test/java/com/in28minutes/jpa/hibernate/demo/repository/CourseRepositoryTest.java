@@ -43,8 +43,8 @@ public class CourseRepositoryTest {
         Assert.assertEquals("Updated course", course1.getName());
     }
 
-    @Test
-    @DirtiesContext
+//    @Test
+//    @DirtiesContext
     public void playWithEntityManager() {
         courseRepository.playWithEntityManager();
     }
