@@ -42,4 +42,10 @@ public class CourseRepositoryTest {
         Course course1 = courseRepository.findById(10001L);
         Assert.assertEquals("Updated course", course1.getName());
     }
+
+    @Test
+    @DirtiesContext
+    public void playWithEntityManager() {
+        courseRepository.playWithEntityManager();
+    }
 }
