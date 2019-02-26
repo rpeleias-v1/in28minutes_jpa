@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Getter
 @Setter
@@ -22,6 +23,9 @@ public class Review {
     private String description;
 
     private String rating;
+
+    @ManyToOne
+    private Course course;
 
     public Review(String description, String rating) {
         this.description = description;
