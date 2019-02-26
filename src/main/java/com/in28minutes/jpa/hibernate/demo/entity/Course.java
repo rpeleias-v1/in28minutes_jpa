@@ -32,7 +32,7 @@ public class Course {
 
     @Getter
     @Setter
-    @ManyToMany
+    @ManyToMany(mappedBy = "courses")
     private List<Student> students;
 
     @UpdateTimestamp
