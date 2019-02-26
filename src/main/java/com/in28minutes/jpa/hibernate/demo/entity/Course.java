@@ -33,7 +33,7 @@ public class Course {
     @Getter
     @Setter
     @ManyToMany(mappedBy = "courses")
-    private List<Student> students;
+    private List<Student> students = new ArrayList<>();
 
     @UpdateTimestamp
     private LocalDateTime lastUpdatedDate;

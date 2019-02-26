@@ -1,6 +1,8 @@
 package com.in28minutes.jpa.hibernate.demo;
 
+import com.in28minutes.jpa.hibernate.demo.entity.Course;
 import com.in28minutes.jpa.hibernate.demo.entity.Review;
+import com.in28minutes.jpa.hibernate.demo.entity.Student;
 import com.in28minutes.jpa.hibernate.demo.repository.CourseRepository;
 import com.in28minutes.jpa.hibernate.demo.repository.StudentRepository;
 import org.slf4j.Logger;
@@ -31,9 +33,10 @@ public class DemoApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         //studentRepository.saveStudentWithPassport();
-        List<Review> reviews = new ArrayList<>();
-        reviews.add(new Review("5", "Great Hands-on Stuff"));
-        reviews.add(new Review("5", "Great Hands-on Stuff"));
-        courseRepository.addReviewsForCourse(10003L, reviews);
+//        List<Review> reviews = new ArrayList<>();
+//        reviews.add(new Review("5", "Great Hands-on Stuff"));
+//        reviews.add(new Review("5", "Great Hands-on Stuff"));
+//        courseRepository.addReviewsForCourse(10003L, reviews);
+        studentRepository.insertStudentAndCourse(new Student("Jack"), new Course("Microservices in 100 Steps"));
     }
 }
