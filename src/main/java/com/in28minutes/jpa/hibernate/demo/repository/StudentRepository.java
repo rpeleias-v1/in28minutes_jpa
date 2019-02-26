@@ -1,6 +1,7 @@
 package com.in28minutes.jpa.hibernate.demo.repository;
 
-import com.in28minutes.jpa.hibernate.demo.entity.Course;
+import com.in28minutes.jpa.hibernate.demo.entity.Passport;
+import com.in28minutes.jpa.hibernate.demo.entity.Student;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,38 +19,31 @@ public class StudentRepository {
     @Autowired
     private EntityManager entityManager;
 
-    public Course findById(Long id) {
-        return entityManager.find(Course.class, id);
+    public Student findById(Long id) {
+        return entityManager.find(Student.class, id);
     }
 
 
     public void deleteById(Long id) {
-        Course course = findById(id);
-        entityManager.remove(course);
+        Student student = findById(id);
+        entityManager.remove(student);
     }
 
-    public Course save(Course course) {
-        if (course.getId() == null) {
-            entityManager.persist(course);
+    public Student save(Student student) {
+        if (student.getId() == null) {
+            entityManager.persist(student);
         } else {
-            entityManager.merge(course);
+            entityManager.merge(student);
         }
-        return course;
+        return student;
     }
 
-    public void playWithEntityManager() {
-        logger.info("Playing with entityManager -> lets start!!");
-        Course course1 = new Course("Web Services in 100 steps");
-        entityManager.persist(course1);
-        entityManager.flush();
-        // transactional context keeps change and track it to DB
-        course1.setName("Updated course1");
-        entityManager.flush();
+    public void saveStudentWithPassport() {
+        Passport passport = new Passport("Z123456");
+        entityManager.persist(passport);
 
-        entityManager.refresh(course1);
-        Course course2 = new Course("Angular in 100 steps");
-        // transactional context keeps change and track it to DB
-        course2.setName("Updated Angular course");
-        entityManager.flush();
+        Student student = new Student("Rodrigo");
+        student.setPassport(passport);
+        entityManager.persist(student);
     }
 }
