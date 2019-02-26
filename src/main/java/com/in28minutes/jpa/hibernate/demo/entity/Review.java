@@ -13,7 +13,6 @@ import javax.persistence.ManyToOne;
 @Getter
 @Setter
 @Entity
-@ToString
 public class Review {
 
     @Id
