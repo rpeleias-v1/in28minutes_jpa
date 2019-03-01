@@ -19,7 +19,6 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@ToString
 public class Student {
 
     @Id
@@ -47,5 +46,13 @@ public class Student {
 
     public void addCourses(Course course) {
         this.courses.add(course);
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

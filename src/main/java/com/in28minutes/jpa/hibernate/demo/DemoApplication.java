@@ -39,18 +39,18 @@ public class DemoApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        //studentRepository.saveStudentWithPassport();
+//        studentRepository.saveStudentWithPassport();
 //        List<Review> reviews = new ArrayList<>();
 //        reviews.add(new Review("5", "Great Hands-on Stuff"));
 //        reviews.add(new Review("5", "Great Hands-on Stuff"));
 //        courseRepository.addReviewsForCourse(10003L, reviews);
-        studentRepository.insertStudentAndCourse(new Student("Jack"), new Course("Microservices in 100 Steps"));
-
-        employeeRepository.insert(new FullTimeEmployee("Jack", new BigDecimal("10000")));
-        employeeRepository.insert(new PartTimeEmployee("Jill", new BigDecimal("50")));
-
-        logger.info("All Employees -> {}", employeeRepository.retrieveAllEmployees());
-
+//        studentRepository.insertStudentAndCourse(new Student("Jack"), new Course("Microservices in 100 Steps"));
+//
+//        employeeRepository.insert(new FullTimeEmployee("Jack", new BigDecimal("10000")));
+//        employeeRepository.insert(new PartTimeEmployee("Jill", new BigDecimal("50")));
+//
+//        logger.info("All Employees -> {}", employeeRepository.retrieveAllEmployees());
+//
 
     }
 }
